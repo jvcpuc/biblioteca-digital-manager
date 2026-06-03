@@ -40,73 +40,173 @@ def listar_documentos():
 
 
 def adicionar_documento():
-    nome = input("Nome do documento: ")
 
-    caminho = os.path.join(BIBLIOTECA_DIR, nome)
+    nome = input(
+        "Nome do documento: "
+    ).strip()
 
-    if os.path.exists(caminho):
-        print("Documento já existe.")
+    if not nome:
+        print(
+            "Nome do documento não informado."
+        )
         return
 
-    with open(caminho, "w", encoding="utf-8") as arquivo:
+    caminho = os.path.join(
+        BIBLIOTECA_DIR,
+        nome
+    )
+
+    if os.path.exists(caminho):
+        print(
+            "Documento já existe."
+        )
+        return
+
+    with open(
+        caminho,
+        "w",
+        encoding="utf-8"
+    ) as arquivo:
         arquivo.write("")
 
-    print("Documento criado com sucesso.")
+    print(
+        "Documento criado com sucesso."
+    )
 
 
 def renomear_documento():
-    nome_atual = input("Nome atual: ")
-    novo_nome = input("Novo nome: ")
 
-    origem = os.path.join(BIBLIOTECA_DIR, nome_atual)
-    destino = os.path.join(BIBLIOTECA_DIR, novo_nome)
+    nome_atual = input(
+        "Nome atual: "
+    ).strip()
 
-    if not os.path.exists(origem):
-        print("Documento não encontrado.")
+    if not nome_atual:
+        print(
+            "Nome atual não informado."
+        )
         return
 
-    os.rename(origem, destino)
+    novo_nome = input(
+        "Novo nome: "
+    ).strip()
 
-    print("Documento renomeado com sucesso.")
+    if not novo_nome:
+        print(
+            "Novo nome não informado."
+        )
+        return
 
+    origem = os.path.join(
+        BIBLIOTECA_DIR,
+        nome_atual
+    )
+
+    destino = os.path.join(
+        BIBLIOTECA_DIR,
+        novo_nome
+    )
+
+    if not os.path.exists(origem):
+        print(
+            "Documento não encontrado."
+        )
+        return
+
+    os.rename(
+        origem,
+        destino
+    )
+
+    print(
+        "Documento renomeado com sucesso."
+    )
 
 def remover_documento():
-    nome = input("Nome do documento: ")
 
-    caminho = os.path.join(BIBLIOTECA_DIR, nome)
+    nome = input(
+        "Nome do documento: "
+    ).strip()
 
-    if not os.path.exists(caminho):
-        print("Documento não encontrado.")
+    if not nome:
+        print(
+            "Nome do documento não informado."
+        )
+        return
+
+    caminho = os.path.join(
+        BIBLIOTECA_DIR,
+        nome
+    )
+
+    if not os.path.isfile(caminho):
+        print(
+            "Documento não encontrado."
+        )
         return
 
     os.remove(caminho)
 
-    print("Documento removido com sucesso.")
-
+    print(
+        "Documento removido com sucesso."
+    )
 
 def criar_diretorio():
-    nome = input("Nome do diretório: ")
 
-    caminho = os.path.join(BIBLIOTECA_DIR, nome)
+    nome = input(
+        "Nome do diretório: "
+    ).strip()
 
-    os.makedirs(caminho, exist_ok=True)
+    if not nome:
+        print(
+            "Nome do diretório não informado."
+        )
+        return
 
-    print("Diretório criado com sucesso.")
+    caminho = os.path.join(
+        BIBLIOTECA_DIR,
+        nome
+    )
 
+    if os.path.exists(caminho):
+        print(
+            "Diretório já existe."
+        )
+        return
+
+    os.makedirs(caminho)
+
+    print(
+        "Diretório criado com sucesso."
+    )
 
 def remover_diretorio():
-    nome = input("Nome do diretório: ")
 
-    caminho = os.path.join(BIBLIOTECA_DIR, nome)
+    nome = input(
+        "Nome do diretório: "
+    ).strip()
 
-    if not os.path.exists(caminho):
-        print("Diretório não encontrado.")
+    if not nome:
+        print(
+            "Nome do diretório não informado."
+        )
+        return
+
+    caminho = os.path.join(
+        BIBLIOTECA_DIR,
+        nome
+    )
+
+    if not os.path.isdir(caminho):
+        print(
+            "Diretório não encontrado."
+        )
         return
 
     shutil.rmtree(caminho)
 
-    print("Diretório removido com sucesso.")
-
+    print(
+        "Diretório removido com sucesso."
+    )
 
 def exibir_menu():
     print("\n")
