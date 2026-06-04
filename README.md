@@ -6,7 +6,8 @@ Sistema desenvolvido para auxiliar bibliotecas no gerenciamento de documentos di
 
 O sistema oferece as seguintes funcionalidades:
 - Listagem de documentos por tipo
-- Listagem de documentos por ano
+- Listagem de documentos por ano de criação
+- Listagem de documentos por ano da última modificação
 - Inclusão de documentos no acervo
 - Renomeação de documentos
 - Remoção de documentos
@@ -36,17 +37,9 @@ biblioteca-digital-manager/
 │
 ├── src/
 │   ├── gerenciador.py
-│   ├── arquivos.py
-│   ├── diretorios.py
-│
-├── testes/
-│   ├── test_arquivos.py
-│   ├── test_diretorios.py
 │
 ├── biblioteca/
 │
 ├── README.md
-├── CONTRIBUTING.md
-├── requirements.txt
 └── .gitignore
 ```

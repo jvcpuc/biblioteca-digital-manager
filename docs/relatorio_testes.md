@@ -18,3 +18,5 @@
 
 ## Conclusão
 Todas as funcionalidades operaram corretamente.
+
+* na pasta 'biblioteca' existem arquivos de testes
