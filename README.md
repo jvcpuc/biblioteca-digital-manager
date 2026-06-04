@@ -22,7 +22,7 @@ O sistema oferece as seguintes funcionalidades:
 ## Execução
 
 ```bash
-python src/gerenciador.py
+python3 src/gerenciador.py
 ```
 
 ## Estrutura do Repositório
